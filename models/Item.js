@@ -8,8 +8,8 @@ const itemSchema = Schema ({
     status: {
         type: String,
         required: true,
-        default: 'TO-DO',
-        enum: ['TO-DO', 'PENDING', 'COMPLETED']
+        default: 'Ice-Box',
+        enum: ['Ice-Box', 'In-Progress', 'Completed']
     },
 },
 {
