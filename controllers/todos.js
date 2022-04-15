@@ -3,12 +3,13 @@ const router = express.Router()
 const ToDo = require ('../models/ToDo')
 
 /*
-URL         HTTP        Verb    Action -Used-For         Mongoose-Model-Function
-/todos/     GET	        index	Displaying a list	    .find
-/todos/     POST	    create	Create a new todo	    .create
-/todos/:id	GET	        show	Display a specific todo	.findById
-/todos/:id	PATCH/PUT	update	Update a specific todo	.findByIdAndUpdate
-/todos/:id	DELETE	    destroy	Delete a specific todo	.findByIdAndDelete
+URL             HTTP        Verb    Action -Used-For         Mongoose-Model-Function
+/todos/         GET	        index	Displaying a list	    .find
+/todos/         POST	    create	Create a new todo	    .create
+/todos/:id	    GET	        show	Display a specific todo	.findById
+/todos/:id	    PATCH/PUT	update	Update a specific todo	.findByIdAndUpdate
+/todos/:id	    DELETE	    destroy	Delete a specific todo	.findByIdAndDelete
+/todos/table	GET	        table   sort to new array       .find
 */
 
 
