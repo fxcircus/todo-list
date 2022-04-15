@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export default function Form( { addToDo }) {
     const [formData, setFormData] = useState({
-        text:""
+        text:"", completed:false
     })
 
     const handleChange = (event) => {
@@ -11,7 +11,7 @@ export default function Form( { addToDo }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addToDo(formData)
+        addToDo(formData, true)
     }
     return (
         <form onSubmit={handleSubmit}>

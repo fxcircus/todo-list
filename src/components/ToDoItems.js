@@ -1,7 +1,13 @@
 import { toHaveDescription } from "@testing-library/jest-dom/dist/matchers"
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { isCompositeComponent } from "react-dom/test-utils"
 
 export default function ToDoItems( { toDos } ){
+
+    useEffect(() => {
+        console.log('rendered todo')
+    },toDos)
+
     return (
         <ul>
             {toDos.map(toDo => {
