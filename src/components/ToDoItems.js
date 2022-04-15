@@ -3,12 +3,12 @@ import { useState } from "react"
 
 export default function ToDoItems( { toDos } ){
     return (
-        <div>
+        <ul>
             {toDos.map(toDo => {
                 return (
-                    <div className="row">{toDo.text} <button>COMPLETED</button></div>
+                    <div className="row"><li>{toDo.text} <button>COMPLETED</button></li></div>
                 )
             })}
-        </div>
+        </ul>
     )
 }

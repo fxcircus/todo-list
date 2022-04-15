@@ -9,9 +9,9 @@ export default function App() {
                 <label>New Item</label>
                 <input type="tex"/>
             </form>
-            <h2>To Do Items:</h2>
+            <h4>To Do Items:</h4>
             <ToDoItems toDos={Data}/>
-            <h2>Completed:</h2>
+            <h4>Completed:</h4>
         </main>
     )
 }
