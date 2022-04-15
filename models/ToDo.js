@@ -1,6 +1,6 @@
 const { Schema, model } = require("./connection")
 
-const itemSchema = Schema ({
+const toDoSchema = Schema ({
     text: {
         required: true,
         type: String
@@ -17,4 +17,4 @@ const itemSchema = Schema ({
 }
 )
 
-module.exports = model('Item', itemSchema)
+module.exports = model('ToDo', toDoSchema)

@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const Item = require ('../models/Item')
+const ToDo = require ('../models/ToDo')
 
 // Index: get all Items
 router.get('/', (req, res) => {
-    Item.find({}, (err, foundItems) => {
+    ToDo.find({}, (err, foundToDos) => {
         if(!err) {
-            res.status(200).json(foundItems)
+            res.status(200).json(foundToDos)
         } else {
             res.status(400).json(err)
         }
@@ -17,9 +17,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const { body } = req
 
-    Item.create(body, (err, createdItem) => {
+    ToDo.create(body, (err, createdToDo) => {
         if(!err) {
-            res.status(200).json({ message: "Created!", createdItem})
+            res.status(200).json({ message: "Created!", createdToDo})
         } else {
             res.status(400).json(err)
         }
@@ -31,9 +31,9 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     const { body } = req
 
-    Item.findByIdAndUpdate(req.params.id, body, {new: true}, (err, updatedItem) => {
+    ToDo.findByIdAndUpdate(req.params.id, body, {new: true}, (err, updatedToDo) => {
         if(!err) {
-            res.status(200).json(updatedItem)
+            res.status(200).json(updatedToDo)
         } else {
             res.status(400).json(err)
         }
@@ -42,9 +42,9 @@ router.put('/:id', (req, res) => {
 
 // Table
 router.get('/table', (req, res) => {
-    Item.find({}, (err, foundItems) => {
+    ToDo.find({}, (err, foundToDos) => {
         if(!err) {
-            const formattedData = foundItems.reduce((acc, item) => {
+            const formattedData = foundToDos.reduce((acc, item) => {
                 acc[item.status] = acc[item.status] ? [...acc[item.status], item] : [item]
                 return acc
             }, {})
@@ -57,9 +57,9 @@ router.get('/table', (req, res) => {
 
 // Show
 router.get('/:id', (req, res) => {
-    Item.findById(req.params.id, (err, foundItem) => {
+    ToDo.findById(req.params.id, (err, foundToDo) => {
         if(!err) {
-            res.status(200).json(foundItem)
+            res.status(200).json(foundToDo)
         } else {
             res.status(400).json(err)
         }
