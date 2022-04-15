@@ -2,19 +2,22 @@
     --background-color: #f3f5fc;
     --shadow-color: #ccd0dd;
     --font: Helvetica;
+    --label-text-color: #3f445f;
+    --input-text-color: #666f99;
 }
 
 body {
+    margin: 0;
     background: var(--background-color);
     font-family: var(--font);
     display: flex;
-    flex-direction: column;
     align-items: center;    
-    
+    flex-direction: column;
 }
 
 main {
-    padding: 10px;
+    margin-top: 25vh;
+    padding: 20px 30px 20px 30px;
     background: white;
     border-radius: 5px;
     box-shadow: 0px 5px 20px var(--shadow-color);
@@ -25,10 +28,14 @@ input {
     font-family: var(--font);
     border: none;
     border-radius: 5px;
+    padding: 3px;
+    color: var(--input-text-color);
+    box-sizing: border-box;
+    outline: none;
 }
 
 li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 button {
@@ -36,9 +43,14 @@ button {
     background-color: black;
     font-family: var(--font);
     border: none;
-    font-size:small;
-    padding: 3px 5px 3px 5px;
+    font-size: x-small;
+    padding: 8px 20px 8px 20px;
     box-shadow: 0px 2px 5px var(--shadow-color);
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 form {
@@ -48,5 +60,5 @@ form {
 
 label {
     font-size: small;
-    color:darkgray;
+    color: var(--label-text-color);
 }
