@@ -20,3 +20,6 @@ Model data saved to Heroku.
 - CSS
 - HTML
 - VScode
+- Postman
+- Git
+- GitHub
