@@ -7,7 +7,7 @@ import axios from 'axios'
 
 export default function App() {
     const [toDos, setToDos] = useState([])
-
+    const URL = `https://roytodolistminiproject.herokuapp.com/api`
     // const addToDo = (item, isNew) => {
     //     if (isNew) {
     //         const arr = toDos
@@ -19,7 +19,7 @@ export default function App() {
 
     const getToDos = async() =>{
         try {
-            const response = await axios.get(`https://roytodolistminiproject.herokuapp.com/api/todos/`)
+            const response = await axios.get(`${URL}/todos/`)
             setToDos(response.data)
         } catch (err){
             console.error(err)
@@ -30,7 +30,7 @@ export default function App() {
         try {
             await axios({
                 method:'post',
-                url:`http://localhost:3000/todos/`,
+                url:`${URL}/todos/`,
                 data:item
             })
             console.log(item)
@@ -44,7 +44,7 @@ export default function App() {
         try {
             await axios({
                 method:'put',
-                url:`http://localhost:3000/todos/${item._id}`,
+                url:`${URL}/todos/${item._id}`,
                 data: {text: item.text, status: newStatus}
             })
             getToDos()
