@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Form( { addToDo }) {
+export default function Form( { createToDo }) {
     const [formData, setFormData] = useState({
         text:"", completed:false
     })
@@ -11,8 +11,9 @@ export default function Form( { addToDo }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addToDo(formData, true)
+        createToDo(formData)
     }
+
     return (
         <form onSubmit={handleSubmit}>
             <label>New Item</label>
@@ -24,4 +25,4 @@ export default function Form( { addToDo }) {
             />
         </form>
     )
-}
+} 
