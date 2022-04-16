@@ -62,3 +62,7 @@ label {
     font-size: small;
     color: var(--label-text-color);
 }
+
+.completed {
+    text-decoration: line-through;
+}

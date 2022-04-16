@@ -8,7 +8,7 @@ export default function CompletedItems( { todos, changeStatus} ){
         <ul>
             {todos.map(toDo => {
                 return (
-                    toDo.status==="Completed" ? <div className="row"><li>{toDo.text} <button onClick={(e) => {changeStatus(toDo, 'In-Progress')}}>TO DO</button></li></div> : ""
+                    toDo.status==="Completed" ? <div className="completed"><li>{toDo.text} <button onClick={(e) => {changeStatus(toDo, 'In-Progress')}}>TO DO</button></li></div> : ""
                 )
             })}
         </ul>
