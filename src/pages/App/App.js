@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Data from '../../data'
 import ToDoItems from '../../components/ToDoItems'
 import Form from '../../components/Form'
+import ComletedItems from '../../components/CompletedItems'
 import axios from 'axios'
 
 export default function App() {
@@ -20,7 +21,6 @@ export default function App() {
         try {
             const response = await axios.get(`http://localhost:3000/todos/`)
             setToDos(response.data)
-            // console.log(toDos)
         } catch (err){
             console.error(err)
         }
@@ -40,6 +40,19 @@ export default function App() {
         }
     }
 
+    const changeStatus = async(item, newStatus) => {
+        try {
+            await axios({
+                method:'put',
+                url:`http://localhost:3000/todos/${item._id}`,
+                data: {text: item.text, status: newStatus}
+            })
+            getToDos()
+        } catch(err) {
+            console.error(err)
+        }
+    }
+
     useEffect(() => {
         getToDos()
     },[])
@@ -49,8 +62,9 @@ export default function App() {
             <h1>My To Do List</h1>
             <Form createToDo={createToDo}/>
             <h4>To Do Items:</h4>
-            <ToDoItems todos={toDos}/>
+            <ToDoItems todos={toDos} changeStatus={changeStatus} />
             <h4>Completed:</h4>
+            <ComletedItems todos={toDos} changeStatus={changeStatus} />
         </main>
     )
 } 
