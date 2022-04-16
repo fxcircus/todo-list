@@ -19,7 +19,7 @@ export default function App() {
 
     const getToDos = async() =>{
         try {
-            const response = await axios.get(`http://localhost:3000/todos/`)
+            const response = await axios.get(`https://roytodolistminiproject.herokuapp.com/api/todos/`)
             setToDos(response.data)
         } catch (err){
             console.error(err)

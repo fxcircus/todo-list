@@ -8,12 +8,12 @@ const toDoController = require('./controllers/todos')
 
 app.use(cors())
 app.use(express.json()) // prepares express to parse json
-app.use("/todos", toDoController)
 app.use(express.static(path.join(__dirname, 'build')))  // serve static file
+app.use("/api/todos", toDoController)
 
-// app.get('.*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'build', 'index.html'))
-// })
+app.get('.*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`)
