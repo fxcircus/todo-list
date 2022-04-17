@@ -8,7 +8,6 @@ import axios from 'axios'
 export default function App() {
     const [toDos, setToDos] = useState([])
     const URL = `https://roytodolistminiproject.herokuapp.com/api`
-    // const URL = `localhost:3000/api`
 
     // const addToDo = (item, isNew) => {
     //     if (isNew) {
