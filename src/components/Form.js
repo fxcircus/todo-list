@@ -16,7 +16,7 @@ export default function Form( { createToDo }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>New Item</label>
+            <label>New task:</label>
             <input
                 type="text"
                 name="text"

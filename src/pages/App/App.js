@@ -8,6 +8,8 @@ import axios from 'axios'
 export default function App() {
     const [toDos, setToDos] = useState([])
     const URL = `https://roytodolistminiproject.herokuapp.com/api`
+    // const URL = `localhost:3000/api`
+
     // const addToDo = (item, isNew) => {
     //     if (isNew) {
     //         const arr = toDos
@@ -53,18 +55,30 @@ export default function App() {
         }
     }
 
+    const deleteToDo = async(item) => {
+        try {
+            await axios({
+                method:'delete',
+                url:`${URL}/todos/${item._id}`
+            })
+            getToDos()
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
         getToDos()
     },[])
 
     return (
         <main>
-            <h1>My To Do List</h1>
+            <h1>Mini Project To-Do List</h1>
             <Form createToDo={createToDo}/>
-            <h4>To Do Items:</h4>
-            <ToDoItems todos={toDos} changeStatus={changeStatus} />
+            <h4>To do:</h4>
+            <ToDoItems todos={toDos} changeStatus={changeStatus} deleteToDo={deleteToDo} />
             <h4>Completed:</h4>
-            <ComletedItems todos={toDos} changeStatus={changeStatus} />
+            <ComletedItems todos={toDos} changeStatus={changeStatus} deleteToDo={deleteToDo} />
         </main>
     )
 } 
